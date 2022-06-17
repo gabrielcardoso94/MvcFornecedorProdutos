@@ -25,10 +25,5 @@ namespace Business.Models
             Quantidade = quantidade;
             Valor = valor;
         }
-
-        public double ValorTotal()
-        {
-            return Valor * Quantidade;
-        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Business.Interfaces;
 using Business.Models;
+using Business.Services;
 using Data.Repository;
 
 namespace App.Configurations
@@ -11,6 +12,8 @@ namespace App.Configurations
             services.AddScoped<IRepositorio<Fornecedor>, FornecedorRepositorio>();
             services.AddScoped<IRepositorio<Endereco>, EnderecoRepositorio>();
             services.AddScoped<IRepositorio<Produto>, ProdutoRepositorio>();
+
+            services.AddScoped<FornecedorService>();
 
             return services;
         }

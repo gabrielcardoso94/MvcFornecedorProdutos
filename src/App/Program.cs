@@ -1,21 +1,19 @@
-using App.Data;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Data.Context;
-using Business.Interfaces;
-using Data.Repository;
-using Business.Models;
 using App.Configurations;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddControllersWithViews();
 
 builder.Services.AddIdentity(builder.Configuration);
 
 builder.Services.AddDbContext<MeuDbContext>(options => options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.ResolveDependencies();
+
+builder.Services.AddAutoMapper(typeof(Program));
 
 var app = builder.Build();
 
