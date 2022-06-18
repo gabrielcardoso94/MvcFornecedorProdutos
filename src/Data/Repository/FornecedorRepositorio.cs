@@ -22,7 +22,10 @@ namespace Data.Repository
 
         public async Task<Fornecedor> ObterPorId(int id)
         {
-            return await _context.Fornecedores.FirstOrDefaultAsync(f => f.Id == id);
+            return await _context.Fornecedores
+                .AsNoTracking()
+                .Include(e => e.Endereco)
+                .FirstOrDefaultAsync(f => f.Id == id);
         }
 
         public async Task Adicionar(Fornecedor fornecedor)
