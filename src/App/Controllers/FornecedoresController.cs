@@ -32,6 +32,8 @@ namespace App.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Adicionar(FornecedorViewModel fornecedorViewModel)
         {
+            if (!ModelState.IsValid) return View(fornecedorViewModel);
+
             await _fornecedorService.Adicionar(_mapper.Map<Fornecedor>(fornecedorViewModel));
             return RedirectToAction(nameof(Index));
         }

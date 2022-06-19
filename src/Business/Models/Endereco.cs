@@ -10,7 +10,7 @@ namespace Business.Models
         public string Logradouro { get; set; }
         public string Numero { get; set; }
         public string Complemento { get; set; }
-        public int Cep { get; set; }
+        public string Cep { get; set; }
         public string Bairro { get; set; }
         public string Cidade { get; set; }
         public string Estado { get; set; }
@@ -22,7 +22,7 @@ namespace Business.Models
         {            
         }
 
-        public Endereco(int id, string logradouro, string numero, string complemento, int cep, string bairro, string cidade, string estado)
+        public Endereco(int id, string logradouro, string numero, string complemento, string cep, string bairro, string cidade, string estado)
         {
             Id = id;
             Logradouro = logradouro;

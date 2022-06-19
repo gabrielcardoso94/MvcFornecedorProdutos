@@ -1,0 +1,46 @@
+﻿@using App.ViewModels.Enums
+@model App.ViewModels.ProdutoViewModel
+
+@{
+    ViewData["Title"] = "Adicionar";
+}
+
+<div class="col-md-4">
+    <form asp-action="Adicionar">
+        <div class="mb-3">
+            <label asp-for="Nome" class="form-label"></label>
+            <input asp-for="Nome" class="form-control" />
+            <span asp-validation-for="Nome" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Quantidade" class="form-label"></label>
+            <input asp-for="Quantidade" class="form-control" />
+            <span asp-validation-for="Quantidade" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Valor" class="form-label"></label>
+            <input asp-for="Valor" class="form-control" />
+            <span asp-validation-for="Valor" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Imagem" class="form-label"></label>
+            <input asp-for="Imagem" class="form-control" />
+            <span asp-validation-for="Imagem" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="TipoProduto" class="form-label"></label>
+            <select asp-for="TipoProduto" asp-items="Html.GetEnumSelectList<TipoProdutoViewModel>()" class="form-select">
+                <option></option>
+            </select>
+            <span asp-validation-for="TipoProduto" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="FornecedorId" class="form-label">Fornecedor</label>
+            <select asp-for="FornecedorId" asp-items="@(new SelectList(Model.Fornecedores, "Id", "Nome"))" class="form-select">
+                <option></option>
+            </select>
+            <span asp-validation-for="FornecedorId" class="text-danger"></span>
+        </div>
+        <input type="submit" value="Enviar" class="btn btn-primary" />
+    </form>
+</div>

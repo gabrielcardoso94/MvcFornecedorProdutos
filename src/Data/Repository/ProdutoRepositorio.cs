@@ -17,7 +17,9 @@ namespace Data.Repository
 
         public async Task<List<Produto>> ObterTodos()
         {
-            return await _context.Produtos.AsNoTracking().ToListAsync();
+            return await _context.Produtos.AsNoTracking()
+                .Include(f => f.Fornecedor)
+                .ToListAsync();
         }
 
         public async Task<Produto> ObterPorId(int id)

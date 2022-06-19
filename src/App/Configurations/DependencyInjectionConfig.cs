@@ -14,6 +14,7 @@ namespace App.Configurations
             services.AddScoped<IRepositorio<Produto>, ProdutoRepositorio>();
 
             services.AddScoped<FornecedorService>();
+            services.AddScoped<ProdutoService>();
 
             return services;
         }

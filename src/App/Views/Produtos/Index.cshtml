@@ -1,0 +1,48 @@
+﻿@model IEnumerable<App.ViewModels.ProdutoViewModel>
+
+@{
+    ViewData["Title"] = "Produtos";
+}
+
+<div>
+    <p>
+        <a asp-action="Adicionar" class="btn btn-primary">Novo</a>
+    </p>
+
+    <hr />
+
+    <p>
+        <table class="table">
+            <thead class="table-dark">
+                <tr>
+                    <th>#</th>
+                    <th>@Html.DisplayNameFor(item => item.Nome)</th>
+                    <th>@Html.DisplayNameFor(item => item.Quantidade)</th>
+                    <th>@Html.DisplayNameFor(item => item.Valor)</th>
+                    <th>Fornecedor</th>
+                    <th>Tipo</th>
+                    <th></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.Nome</td>
+                        <td>@item.Quantidade</td>
+                        <td>@item.Valor.ToString("C")</td>
+                        <td>@item.Fornecedor.Nome</td>
+                        <td>@item.TipoProduto</td>
+                        <td>
+                            <a asp-route-id="@item.Id" asp-action="Visualizar">Visualizar</a>
+                            <a asp-route-id="@item.Id" asp-action="Editar">Editar</a>
+                            <a asp-route-id="@item.Id" asp-action="Excluir">Excluir</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </p>
+</div>

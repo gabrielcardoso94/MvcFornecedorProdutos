@@ -7,12 +7,25 @@ namespace App.ViewModels
         [Key]
         public int Id { get; set; }
         public int FornecedorId { get; set; }
+
+        [Required(ErrorMessage = "Campo {0} é requerido")]
         public string Logradouro { get; set; }
+
+        [Required(ErrorMessage = "Campo {0} é requerido")]
         public string Numero { get; set; }
         public string Complemento { get; set; }
-        public int Cep { get; set; }
+
+        [Required(ErrorMessage = "Campo {0} é requerido")]
+        [RegularExpression(@"([0-9]{8})", ErrorMessage = "Campo inválido")]
+        public string Cep { get; set; }
+
+        [Required(ErrorMessage = "Campo {0} é requerido")]
         public string Bairro { get; set; }
+
+        [Required(ErrorMessage = "Campo {0} é requerido")]
         public string Cidade { get; set; }
+
+        [Required(ErrorMessage = "Campo {0} é requerido")]
         public string Estado { get; set; }
         public FornecedorViewModel Fornecedor { get; set; }
 
@@ -20,7 +33,7 @@ namespace App.ViewModels
         {
         }
 
-        public EnderecoViewModel(int id, string logradouro, string numero, string complemento, int cep, string bairro, string cidade, string estado)
+        public EnderecoViewModel(int id, string logradouro, string numero, string complemento, string cep, string bairro, string cidade, string estado)
         {
             Id = id;
             Logradouro = logradouro;

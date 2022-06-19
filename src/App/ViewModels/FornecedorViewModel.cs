@@ -7,9 +7,11 @@ namespace App.ViewModels
         [Key]
         public int Id { get; set; }
 
+        [Required(ErrorMessage = "Campo {0} é requerido")]
         [StringLength(100, ErrorMessage = "O campo {0} deve ter entre {2} e {1} caracteres", MinimumLength = 3)]
         public string Nome { get; set; }
 
+        [Required(ErrorMessage = "Campo {0} é requerido")]
         [StringLength(14, ErrorMessage = "O campo {0} deve ter {1} caracteres", MinimumLength = 14)]
         public string Documento { get; set; }
         public EnderecoViewModel Endereco { get; set; }
